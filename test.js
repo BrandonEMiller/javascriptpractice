@@ -1,8 +1,13 @@
 $(document).ready(function(){
 
 	$('.large').click(function() {
+
+	
 		var firstNameValue = $('.firstName').val();
 		$('#FirstName').text(firstNameValue);
+		if (firstNameValue == undefined) {
+			firstNameValue="Error";
+		}
 
 		var lastNameValue = $('.lastName').val();
 		$('#LastName').text(lastNameValue);
@@ -24,28 +29,9 @@ $(document).ready(function(){
 
 		var yearValue = $('.year').val();
 		$('#Year').text(yearValue);
+
+		$('.icon').css({opacity:"1"})
+		$('h4').css({opacity:"1"})
 	})
 })
 
-function sayHello(firstName) {
-	console.log('Hello, ' + firstName)
-}
-
-// function add(first, second){
-// 	sayHello('Bob');
-
-// 	if (second == undefined) {
-// 		return "must provide two arguments";
-// 	} else {
-// 		return first + second;
-// 	}
-// }
-
-function add(first, second){
-	console.log(first + second);
-	if (first + second >= 1000) {
-		return first + second;
-	} else {
-		add(first+1, second+1);
-	}
-}
