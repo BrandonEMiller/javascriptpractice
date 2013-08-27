@@ -1,113 +1,97 @@
+var dataCollect = []
+
 $(document).ready(function(){
 
 	$('.large').click(function() {
-		var counter = 0;
-		
-		var firstNameValue = $('.firstName').val();
-		
-		if (firstNameValue == "") {
-			$('#FirstName').text("Error Must Provide First Name");
-			$('#FirstName').css({color:"red"})
-			alert('No First Name.');
-			counter=1;
-		}	else{
-		$('#FirstName').text(firstNameValue);
-		$('#FirstName').css({color:"black"});
-			}
-			
 
-		var lastNameValue = $('.lastName').val();
 		
-		if (lastNameValue == "") {
-			$('#LastName').text("Error Must Provide Last Name");
-			$('#LastName').css({color:"red"})
-			alert('No Last Name.');
-			counter=1;
-		}	else{
-		$('#LastName').text(lastNameValue);
-		$('#LastName').css({color:"black"})
-			}
+		var entry = getInput();
 
-		var emailValue = $('.email').val();
-
-		if (emailValue == "") {
-			$('#Email').text("Error Must Provide Email Address");
-			$('#Email').css({color:"red"})
-			alert('No Email Address.');
-			counter=1;
-		}	
-		else{
-			$('#Email').text(emailValue);
-			$('#Email').css({color:"black"})
+		if (entry.firstName == ""){
+			alert ('No First Name')
+			$('.firstName').css({background: "red"})
 		}
 
-		var homeTownValue = $('.homeTown').val();
+		else if (entry.lastName == "") {
+			alert ('No Last Name')
+			$('.firstName').css({background: "white"})
+			$('.lastName').css({background: "red"})
+		}
 		
-		if (homeTownValue == "") {
-			$('#HomeTown').text("Error Must Provide a Home Town");
-			$('#HomeTown').css({color:"red"})
-			alert('No Home Town.');
-			counter=1;
-		}	
-		else{
-			$('#HomeTown').text(homeTownValue);
-			$('#HomeTown').css({color:"black"})
+		else if (entry.email == "")	{
+			alert ('No Email Address')
+			$('.firstName').css({background: "white"})
+			$('.lastName').css({background: "white"})
+			$('.email').css({background: "red"})
 		}
 
-		var homeStateValue = $('.homeState').val();
-		
-		if (homeStateValue == "") {
-			$('#HomeState').text("Error Must Provide a Home State");
-			$('#HomeState').css({color:"red"})
-			alert('No Home State.');
-			counter=1;
-		}	
-		else{
-			$('#HomeState').text(homeStateValue);
-			$('#HomeState').css({color:"black"})
+		else if (entry.homeTown == "") {
+			alert ('No Home Town')
+			$('.firstName').css({background: "white"})
+			$('.lastName').css({background: "white"})
+			$('.email').css({background: "white"})
+			$('.homeTown').css({background: "red"})
 		}
 
-		var monthValue = $('.month').val();
-		
-		if (monthValue == "") {
-			$('#Month').text("Error Must Provide Month of Birth");
-			$('#Month').css({color:"red"})
-			alert('No Birth Month.');
-			counter=1;
-		}	
-		else{
-			$('#Month').text(monthValue);
-			$('#Month').css({color:"black"})
+		else if (entry.homeState == "") {
+			alert ('No Home State')
+			$('.firstName').css({background: "white"})
+			$('.lastName').css({background: "white"})
+			$('.email').css({background: "white"})
+			$('.homeTown').css({background: "white"})
+			$('.homeState').css({background: "red"})
 		}
 
-		var dateValue = $('.date').val();
-		
-		if (dateValue == "") {
-			$('#Date').text("Error Must Provide a Date of Birth");
-			$('#Date').css({color:"red"})
-			alert('No Birth Date.');
-			counter=1;
-		}	
-		else{
-			$('#Date').text(dateValue);
-			$('#Date').css({color:"black"})
+		else if (entry.month == "") {
+			alert ('No Birth Month')
+			$('.firstName').css({background: "white"})
+			$('.lastName').css({background: "white"})
+			$('.email').css({background: "white"})
+			$('.homeTown').css({background: "white"})
+			$('.homeState').css({background: "white"})
+			$('.month').css({background: "red"})
 		}
 
-		var yearValue = $('.year').val();
-		
-		if (yearValue == "") {
-			$('#Year').text("Error Must Provide a Year of Birth");
-			$('#Year').css({color:"red"})
-			alert('No Birth Year.');
-			counter=1;
-		}	
-		else{
-			$('#Year').text(yearValue);
-			$('#Year').css({color:"black"})
+		else if (entry.date == "") {
+			alert ('No Birth Date')
+			$('.firstName').css({background: "white"})
+			$('.lastName').css({background: "white"})
+			$('.email').css({background: "white"})
+			$('.homeTown').css({background: "white"})
+			$('.homeState').css({background: "white"})
+			$('.month').css({background: "white"})
+			$('.date').css({background: "red"})
 		}
 
-		$('.icon').css({opacity:"1"})
-		$('h4').css({opacity:"1"})
+		else if (entry.year == "") {
+			alert ('No Birth Year')
+			$('.firstName').css({background: "white"})
+			$('.lastName').css({background: "white"})
+			$('.email').css({background: "white"})
+			$('.homeTown').css({background: "white"})
+			$('.homeState').css({background: "white"})
+			$('.month').css({background: "white"})
+			$('.date').css({background: "white"})
+			$('.year').css({background: "red"})
+		}
+
+		else {
+			$('.firstName').css({background: "white"})
+			$('.lastName').css({background: "white"})
+			$('.email').css({background: "white"})
+			$('.homeTown').css({background: "white"})
+			$('.homeState').css({background: "white"})
+			$('.month').css({background: "white"})
+			$('.date').css({background: "white"})
+			$('.year').css({background: "white"})
+			dataCollect.push(entry);
+			updateUserList(dataCollect);
+			$('.icon').css({opacity:"1"})
+			$('h4').css({opacity:"1"})
+		}	
+		
+
+		
 	})
 
 
@@ -150,10 +134,62 @@ $(document).ready(function(){
     newText = event.target.value;
     $('#Year').text(newText);
   });
-
-
-
-
-
 })
+
+function getInput () {
+	//creating variables and setting each one equal to value of the input variables from our html code.
+	var firstNameVal = $('.firstName').val();
+	var lastNameVal = $('.lastName').val();
+	var emailVal = $('.email').val();
+	var homeTownVal = $('.homeTown').val();
+	var homeStateVal = $('.homeState').val();
+	var monthVal = $('.month').val();
+	var dateVal = $('.date').val();
+	var yearVal = $('.year').val();
+
+	var formData = {
+		firstName: firstNameVal,
+		lastName: lastNameVal,
+		email: emailVal,
+		homeTown: homeTownVal,
+		homeState: homeStateVal,
+		month: monthVal,
+		date: dateVal,
+		year: yearVal
+	};	
+	return formData;
+};
+
+function updateUserList (list) {
+	
+	var ul = $('.userList ul');
+	
+	ul.html('');
+	var count = 0;
+
+	
+	list.forEach(function(user, index){
+		
+		var text = "<li>" + user.firstName + " " + user.lastName + "</li>";
+		ul.append(text);
+
+		
+		count = index + 1;
+	})
+	
+	if (count < 2) {
+		ul.append("<li> We have " + count + "  user.  That person is sad and lonely you should join them. </li>");
+	}
+	else if (count < 5) {
+		ul.append("<li> We have " + count + "  users. That is too few users you should join to bolster our ranks. </li>");
+	}
+	else if (count < 10) {
+		ul.append("<li> We have " + count + "  users. </li>");
+	}
+	else {
+		ul.append("<li> We have " + count + "  users.  We are now well on our way to world domination. </li>");
+	}
+
+}
+
 
