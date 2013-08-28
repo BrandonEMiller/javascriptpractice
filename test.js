@@ -97,7 +97,7 @@ $(document).ready(function(){
 
 	$('.firstName').keyup(function(event) {
     newText = event.target.value;
-    $('#FirstName').text(newText);
+    $('#FirstName').text("Name: " + newText);
   });
 	
 	$('.lastName').keyup(function(event) {
@@ -107,32 +107,32 @@ $(document).ready(function(){
 
 	$('.email').keyup(function(event) {
     newText = event.target.value;
-    $('#Email').text(newText);
+    $('#Email').text("Email Address: " + newText);
   });
 
 	$('.homeTown').keyup(function(event) {
     newText = event.target.value;
-    $('#HomeTown').text(newText);
+    $('#HomeTown').text("Location: " + newText + ",");
   });
 
 	$('.homeState').keyup(function(event) {
     newText = event.target.value;
-    $('#HomeState').text(newText);
+    $('#HomeState').text(" " + newText);
   });
 
 	$('.month').keyup(function(event) {
     newText = event.target.value;
-    $('#Month').text(newText);
+    $('#Month').text("Date of Birth: " + newText);
   });
 
 	$('.date').keyup(function(event) {
     newText = event.target.value;
-    $('#Date').text(newText);
+    $('#Date').text(" " + newText + ",");
   });
 
 	$('.year').keyup(function(event) {
     newText = event.target.value;
-    $('#Year').text(newText);
+    $('#Year').text(" " + newText);
   });
 })
 
