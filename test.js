@@ -1,12 +1,12 @@
 var dataCollect = []
-
+var entry
 
 $(document).ready(function(){
 
 	$('.large').click(function() {
 
 		
-		var entry = getInput();
+		entry = getInput();
 
 		if (entry.firstName == ""){
 			alert ('No First Name')

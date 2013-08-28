@@ -35,7 +35,7 @@ describe ("Social Input", function(){
 		})
 
 		it("successfully records the object into the array dataCollect", function(){
-			expect(dataCollect).toContain('Johnny')
+			expect(dataCollect[0].firstName).toBe('Johnny')
 
 		})
 
