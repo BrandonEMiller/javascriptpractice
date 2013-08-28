@@ -1,11 +1,13 @@
 var dataCollect = []
+var entry
+var total 
 
 $(document).ready(function(){
 
 	$('.large').click(function() {
 
 		
-		var entry = getInput();
+		entry = getInput();
 
 		if (entry.firstName == ""){
 			alert ('No First Name')
@@ -137,7 +139,7 @@ $(document).ready(function(){
 })
 
 function getInput () {
-	//creating variables and setting each one equal to value of the input variables from our html code.
+	
 	var firstNameVal = $('.firstName').val();
 	var lastNameVal = $('.lastName').val();
 	var emailVal = $('.email').val();
@@ -163,8 +165,10 @@ function getInput () {
 function updateUserList (list) {
 	
 	var ul = $('.userList ul');
+	var ut = $('.userTotal ul');
 	
 	ul.html('');
+	ut.html('');
 	var count = 0;
 
 	
@@ -176,18 +180,19 @@ function updateUserList (list) {
 		
 		count = index + 1;
 	})
+
 	
 	if (count < 2) {
-		ul.append("<li> We have " + count + "  user.  That person is sad and lonely you should join them. </li>");
+		ut.append("<li> We have " + count + "  user.  That person is sad and lonely you should join them. </li>");
 	}
 	else if (count < 5) {
-		ul.append("<li> We have " + count + "  users. That is too few users you should join to bolster our ranks. </li>");
+		ut.append("<li> We have " + count + "  users. That is too few users you should join to bolster our ranks. </li>");
 	}
 	else if (count < 10) {
-		ul.append("<li> We have " + count + "  users. </li>");
+		ut.append("<li> We have " + count + "  users. </li>");
 	}
 	else {
-		ul.append("<li> We have " + count + "  users.  We are now well on our way to world domination. </li>");
+		ut.append("<li> We have " + count + "  users.  We are now well on our way to world domination. </li>");
 	}
 
 }
