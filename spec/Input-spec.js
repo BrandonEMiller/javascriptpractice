@@ -62,8 +62,10 @@ describe ("Social Input", function(){
 			expect($('.userList ul li').last().text()).toBe('Johnny Camper');
 		})
 
-		it("only run the number of times of successful data entry")
-			expect(count).toEqual(1)
+		it("only run the number of times of successful data entry", function(){
+			expect($('.userTotal ul li').last().text()).toContain('')
+
+		})
 
 	})
 

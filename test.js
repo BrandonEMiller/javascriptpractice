@@ -1,5 +1,6 @@
 var dataCollect = []
 var entry
+var total 
 
 $(document).ready(function(){
 
@@ -164,8 +165,10 @@ function getInput () {
 function updateUserList (list) {
 	
 	var ul = $('.userList ul');
+	var ut = $('.userTotal ul');
 	
 	ul.html('');
+	ut.html('');
 	var count = 0;
 
 	
@@ -177,18 +180,19 @@ function updateUserList (list) {
 		
 		count = index + 1;
 	})
+
 	
 	if (count < 2) {
-		ul.append("<li> We have " + count + "  user.  That person is sad and lonely you should join them. </li>");
+		ut.append("<li> We have " + count + "  user.  That person is sad and lonely you should join them. </li>");
 	}
 	else if (count < 5) {
-		ul.append("<li> We have " + count + "  users. That is too few users you should join to bolster our ranks. </li>");
+		ut.append("<li> We have " + count + "  users. That is too few users you should join to bolster our ranks. </li>");
 	}
 	else if (count < 10) {
-		ul.append("<li> We have " + count + "  users. </li>");
+		ut.append("<li> We have " + count + "  users. </li>");
 	}
 	else {
-		ul.append("<li> We have " + count + "  users.  We are now well on our way to world domination. </li>");
+		ut.append("<li> We have " + count + "  users.  We are now well on our way to world domination. </li>");
 	}
 
 }
