@@ -1,5 +1,6 @@
 var dataCollect = []
 
+
 $(document).ready(function(){
 
 	$('.large').click(function() {
