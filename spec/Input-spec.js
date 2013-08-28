@@ -84,7 +84,7 @@ describe ("Social Input", function(){
 		})
 		it("not adding to the user count if the input fields are not all filled out", function(){
 			$('.firstName').val('Tommy');
-			$('.email').val('Tentpeg@gmail.com');
+			$('.lastName').val('Tentpeg');
 			$('.homeTown').val('Coker');
 			$('.homeState').val('SC');
 			$('.month').val('December');
@@ -96,7 +96,7 @@ describe ("Social Input", function(){
 		})
 
 		it("not adding to the array dataCollect with the incomplete input data", function(){
-			expect(dataCollect[1].firstName).toBeUndefined
+			expect(dataCollect[1]).toBeUndefined
 
 		})
 	})
