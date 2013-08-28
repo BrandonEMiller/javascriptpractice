@@ -5,14 +5,14 @@ describe ("Social Input", function(){
 			$('input').val('')
 		})
 
-		it("should not run if an entry is blank so the users list should remain blank", function(){
+		it("should not run if an entry is blank so the users list should be Undefined", function(){
 			$('.large').click()
-			expect($('userList ul li')).toBe('')
+			expect($('userList ul li')).toBeUndefined
 
 		})
 
 		it("should not update the array with values when and entry is blank", function(){
-			expect(dataCollect).toBe([])
+			expect(dataCollect).toBeUndefined
 
 		})
 
