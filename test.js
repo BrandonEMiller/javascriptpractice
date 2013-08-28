@@ -137,7 +137,7 @@ $(document).ready(function(){
 })
 
 function getInput () {
-	//creating variables and setting each one equal to value of the input variables from our html code.
+	
 	var firstNameVal = $('.firstName').val();
 	var lastNameVal = $('.lastName').val();
 	var emailVal = $('.email').val();
