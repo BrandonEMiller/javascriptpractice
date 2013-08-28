@@ -11,7 +11,12 @@ describe ("Social Input", function(){
 
 		})
 
-		it("not update the array with values when all entries are blank", function(){
+		it("not running if all entries are blank so the users Total should be Undefined", function(){
+			expect($('userTotal ul li')).toBeUndefined
+
+		})
+
+		it("not updating the array with values when all entries are blank", function(){
 			expect(dataCollect).toBeUndefined
 
 		})
@@ -52,9 +57,13 @@ describe ("Social Input", function(){
 
 		})
 
-		it("successfully records the object into the array dataCollect", function(){
+		it("successfully records the object elements into the array dataCollect", function(){
 			expect(dataCollect[0].firstName).toBe('Johnny')
-			expect(dataCollect[0].lastName).toBe('Camper')
+
+		})
+
+		it("having the array entry completely match the object", function(){
+			expect(dataCollect[0]).toEqual(entry)
 
 		})
 
@@ -63,13 +72,34 @@ describe ("Social Input", function(){
 		})
 
 		it("only run the number of times of successful data entry", function(){
-			expect($('.userTotal ul li').last().text()).toContain('')
+			expect($('.userTotal ul li').last().text()).toContain('1')
 
 		})
 
 	})
 
+	describe("should continue to provide error checking even after a record has been recorded by", function(){
+		beforeEach(function(){
+			$('input').val('')
+		})
+		it("not adding to the user count if the input fields are not all filled out", function(){
+			$('.firstName').val('Tommy');
+			$('.email').val('Tentpeg@gmail.com');
+			$('.homeTown').val('Coker');
+			$('.homeState').val('SC');
+			$('.month').val('December');
+			$('.date').val('18');
+			$('.year').val('1983');
+			$('.large').click()
+			expect($('.userTotal ul li').last().text()).toContain('1')
 
+		})
+
+		it("not adding to the array dataCollect with the incomplete input data", function(){
+			expect(dataCollect[1].firstName).toBeUndefined
+
+		})
+	})
 
 
 
