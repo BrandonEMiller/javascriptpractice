@@ -42,6 +42,8 @@ describe ("Social Input", function(){
 
 	})
 
+	
+
 	describe("should successfully run when all data is entered by", function(){
 		it("successfully recording the input to each part of the object such as firstName", function(){
 			$('.firstName').val('Johnny');
@@ -99,6 +101,37 @@ describe ("Social Input", function(){
 			expect(dataCollect[1]).toBeUndefined
 
 		})
+	})
+
+	describe("should continue to add new entries when input is correctly submitted without deleting old ones", function(){
+		beforeEach(function(){
+			$('input').val('')
+		})
+		it("adding to the user count to incrimate the second entry", function(){
+			$('.firstName').val('Tommy');
+			$('.lastName').val('Tentpeg');
+			$('.email').val('ttentpeg@gmail.com');
+			$('.homeTown').val('Coker');
+			$('.homeState').val('SC');
+			$('.month').val('December');
+			$('.date').val('18');
+			$('.year').val('1983');
+			$('.large').click()
+			expect($('.userTotal ul li').last().text()).toContain('2')
+
+		})
+
+		it("adding a new entry on the screen at the top of the list", function(){
+			expect($('.userList ul li').last().text()).toContain('Tommy')
+
+		})
+
+		it("changes message in the userTotal div since there are now more than one users", function(){
+			expect($('.userTotal ul li').last().text()).toContain('That is too few')
+
+		})
+
+
 	})
 
 
